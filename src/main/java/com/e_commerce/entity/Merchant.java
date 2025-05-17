@@ -1,5 +1,6 @@
 package com.e_commerce.entity;
 
+
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,10 +13,11 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
-@Getter
 @Setter
-public class Customer {
+@Getter
+public class Merchant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

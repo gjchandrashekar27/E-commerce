@@ -8,28 +8,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import com.e_commerce.dto.UserDto;
-import com.e_commerce.service.AdminService;
+import com.e_commerce.service.MerchantService;
 
 import jakarta.validation.Valid;
 
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/merchant")
+public class MerchantController {
 	
 	@Autowired
-	AdminService adminService;
-	
+	MerchantService merchantService;
+
 	@GetMapping("/register")
 	public String loadRegister(UserDto userDto, Model model) {
-		return adminService.register(userDto,model);
+		return merchantService.register(userDto, model);
 	}
 
 	@PostMapping("/register")
-	public String register(@Valid UserDto userDto , BindingResult result) {
-		return adminService.register(userDto,result);
+	public String register(@Valid UserDto userDto, BindingResult result) {
+		return merchantService.register(userDto, result);
 	}
 
 }

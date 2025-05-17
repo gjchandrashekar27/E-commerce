@@ -5,12 +5,10 @@ import org.springframework.validation.BindingResult;
 
 import com.e_commerce.dto.UserDto;
 
-public interface CustomerService {
+public interface MerchantService {
 
 	String register(UserDto userDto, Model model);
 	
-	String register(UserDto userDto, BindingResult result);
-
-	
+	String register(UserDto userDto, BindingResult  result);
 
 }
