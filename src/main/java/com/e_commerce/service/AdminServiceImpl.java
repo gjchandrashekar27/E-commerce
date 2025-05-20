@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 
 import com.e_commerce.dto.UserDto;
 import com.e_commerce.entity.Admin;
+import com.e_commerce.helper.EmailSender;
 import com.e_commerce.repository.AdminRepository;
 import com.e_commerce.repository.CustomerRepository;
 import com.e_commerce.repository.MerchantRepository;
@@ -22,6 +23,9 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
 	MerchantRepository merchantRepository;
+	
+	@Autowired
+	EmailSender emailSender;
 
 	@Override
 	public String register(UserDto userDto, Model model) {
@@ -43,7 +47,8 @@ public class AdminServiceImpl implements AdminService {
 				return "admin-register.html";
 			}
 			
-			return "redirect:/";
+			emailSender.sendEmail(userDto);
+			return "redirect:/admin/otp";
 		}
 		}
 
