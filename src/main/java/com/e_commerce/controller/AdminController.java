@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.e_commerce.dto.UserDto;
 import com.e_commerce.service.AdminService;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 
@@ -28,8 +29,8 @@ public class AdminController {
 	}
 
 	@PostMapping("/register")
-	public String register(@Valid UserDto userDto , BindingResult result) {
-		return adminService.register(userDto,result);
+	public String register(@Valid UserDto userDto , BindingResult result, HttpSession session) {
+		return adminService.register(userDto,result,session);
 	}
 
 }
